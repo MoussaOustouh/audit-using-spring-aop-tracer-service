@@ -1,20 +1,26 @@
 package mo.spring.auditusingspringaoptracerservice.entities;
 
 import mo.spring.auditusingspringaoptracerservice.entities.converters.JpaConverterJson;
+import mo.spring.auditusingspringaoptracerservice.entities.listners.TraceEntityListner;
 
 import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "traces")
+@EntityListeners(TraceEntityListner.class)
 public class Trace implements Serializable {
     private static final long serialVersionUID = 3124638415250772441L;
 
@@ -27,7 +33,7 @@ public class Trace implements Serializable {
     private String ipAddress;
 
     @Convert(converter = JpaConverterJson.class)
-    @Column(columnDefinition = "TEXT")
+    @Lob
     private Object entityState;
 
     private String entityClassName;
@@ -36,10 +42,12 @@ public class Trace implements Serializable {
     private String action;
     private String actionInfo;
 
-    @Column(columnDefinition = "TEXT")
+    @Lob
     private String changes;
 
-    @OneToOne
+    private LocalDateTime tracedAt;
+
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "previous_state_id")
     private Trace previousState;
 
@@ -123,6 +131,14 @@ public class Trace implements Serializable {
         this.changes = changes;
     }
 
+    public LocalDateTime getTracedAt() {
+        return tracedAt;
+    }
+
+    public void setTracedAt(LocalDateTime tracedAt) {
+        this.tracedAt = tracedAt;
+    }
+
     @Override
     public String toString() {
         return "Trace{" +
@@ -135,6 +151,7 @@ public class Trace implements Serializable {
                 ", action='" + action + '\'' +
                 ", actionInfo='" + actionInfo + '\'' +
                 ", changes='" + changes + '\'' +
+                ", tracedAt='" + tracedAt + '\'' +
                 '}';
     }
 }

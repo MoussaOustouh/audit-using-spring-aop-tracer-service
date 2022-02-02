@@ -1,6 +1,9 @@
 package mo.spring.auditusingspringaoptracerservice.dto;
 
+import mo.spring.auditusingspringaoptracerservice.entities.Trace;
+
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 public class TraceDTO implements Serializable {
     private static final long serialVersionUID = 1603237803269868625L;
@@ -15,6 +18,13 @@ public class TraceDTO implements Serializable {
 
     private String action;
     private String actionInfo;
+    private String changes;
+    private LocalDateTime tracedAt;
+
+    private Trace previousState;
+
+    public TraceDTO() {
+    }
 
     public Long getIdTrace() {
         return idTrace;
@@ -80,6 +90,30 @@ public class TraceDTO implements Serializable {
         this.actionInfo = actionInfo;
     }
 
+    public String getChanges() {
+        return changes;
+    }
+
+    public void setChanges(String changes) {
+        this.changes = changes;
+    }
+
+    public LocalDateTime getTracedAt() {
+        return tracedAt;
+    }
+
+    public void setTracedAt(LocalDateTime tracedAt) {
+        this.tracedAt = tracedAt;
+    }
+
+    public Trace getPreviousState() {
+        return previousState;
+    }
+
+    public void setPreviousState(Trace previousState) {
+        this.previousState = previousState;
+    }
+
     @Override
     public String toString() {
         return "TraceDTO{" +
@@ -91,6 +125,8 @@ public class TraceDTO implements Serializable {
                 ", entityId=" + entityId +
                 ", action='" + action + '\'' +
                 ", actionInfo='" + actionInfo + '\'' +
+                ", changes='" + changes + '\'' +
+                ", tracedAt='" + tracedAt + '\'' +
                 '}';
     }
 }

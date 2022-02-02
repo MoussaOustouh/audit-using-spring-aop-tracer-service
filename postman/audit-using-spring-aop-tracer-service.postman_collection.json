@@ -1,0 +1,76 @@
+{
+	"info": {
+		"_postman_id": "d0983986-3ee8-4ce1-83b7-1d434245bf36",
+		"name": "audit-using-spring-aop-tracer-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create a trace",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": null,\n    \"ipAddress\": null,\n    \"entityState\": {\n        \"id\": 1,\n        \"street1\": \"2 Pelham Circle\",\n        \"street2\": \"\",\n        \"city\": \"Stratford\",\n        \"state\": \"CT\",\n        \"zip\": \"00431\"\n    },\n    \"entityClassName\": \"mo.spring.auditusingspringaop.dto.AddressDTO\",\n    \"entitId\": 1,\n    \"action\": null,\n    \"actionInfo\": null\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/traces",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"traces"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a trace",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/traces/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"traces",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all traces",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/traces",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"traces"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
