@@ -1,12 +1,12 @@
-package mo.spring.auditusingspringaoptracerservice.entities.listners;
+package mo.spring.auditusingspringaoptracerservice.traceability.server.entities.listners;
 
-import mo.spring.auditusingspringaoptracerservice.entities.Trace;
+import mo.spring.auditusingspringaoptracerservice.traceability.server.constants.TraceActions;
+import mo.spring.auditusingspringaoptracerservice.traceability.server.entities.Trace;
 import mo.spring.auditusingspringaoptracerservice.repositories.TraceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 
 import javax.persistence.PostPersist;
-import javax.persistence.PostUpdate;
 import javax.persistence.PrePersist;
 import java.util.Optional;
 
@@ -25,8 +25,11 @@ public class TraceEntityListner {
 
     @PostPersist
     public void postPersist(Trace entity) {
-        if(entity.getAction() == "UPDATE"){
-            // compare the ennity.getEntityState() and the preTrace.getEntityState()
+        System.out.println("Trace.action : " + entity.getAction());
+        if(entity.getAction().equals(TraceActions.UPDATE)){
+            // compare the entity.getEntityState() and entity.getPreviousTrace().getEntityState()
+            System.out.println("compare the entity.getEntityState() and entity.getPreviousTrace().getEntityState()");
+            // then save the changes in entity.changes
         }
     }
 }

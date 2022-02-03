@@ -1,7 +1,7 @@
-package mo.spring.auditusingspringaoptracerservice.entities;
+package mo.spring.auditusingspringaoptracerservice.traceability.server.entities;
 
-import mo.spring.auditusingspringaoptracerservice.entities.converters.JpaConverterJson;
-import mo.spring.auditusingspringaoptracerservice.entities.listners.TraceEntityListner;
+import mo.spring.auditusingspringaoptracerservice.traceability.server.entities.converters.JpaConverterJson;
+import mo.spring.auditusingspringaoptracerservice.traceability.server.entities.listners.TraceEntityListner;
 
 import javax.persistence.Column;
 import javax.persistence.Convert;

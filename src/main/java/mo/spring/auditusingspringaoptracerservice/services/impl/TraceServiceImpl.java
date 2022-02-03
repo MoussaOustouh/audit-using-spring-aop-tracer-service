@@ -2,7 +2,7 @@ package mo.spring.auditusingspringaoptracerservice.services.impl;
 
 import mo.spring.auditusingspringaoptracerservice.dto.TraceDTO;
 import mo.spring.auditusingspringaoptracerservice.dto.mapper.IMapper;
-import mo.spring.auditusingspringaoptracerservice.entities.Trace;
+import mo.spring.auditusingspringaoptracerservice.traceability.server.entities.Trace;
 import mo.spring.auditusingspringaoptracerservice.exceptions.NotFoundException;
 import mo.spring.auditusingspringaoptracerservice.exceptions.constants.ErrorMessages;
 import mo.spring.auditusingspringaoptracerservice.repositories.TraceRepository;

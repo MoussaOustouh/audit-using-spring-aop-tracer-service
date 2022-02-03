@@ -1,6 +1,6 @@
 package mo.spring.auditusingspringaoptracerservice.dto;
 
-import mo.spring.auditusingspringaoptracerservice.entities.Trace;
+import mo.spring.auditusingspringaoptracerservice.traceability.server.entities.Trace;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;

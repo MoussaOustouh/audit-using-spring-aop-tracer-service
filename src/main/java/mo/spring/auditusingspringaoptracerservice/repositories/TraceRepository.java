@@ -1,6 +1,6 @@
 package mo.spring.auditusingspringaoptracerservice.repositories;
 
-import mo.spring.auditusingspringaoptracerservice.entities.Trace;
+import mo.spring.auditusingspringaoptracerservice.traceability.server.entities.Trace;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

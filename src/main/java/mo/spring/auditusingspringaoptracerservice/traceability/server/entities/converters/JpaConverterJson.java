@@ -1,4 +1,4 @@
-package mo.spring.auditusingspringaoptracerservice.entities.converters;
+package mo.spring.auditusingspringaoptracerservice.traceability.server.entities.converters;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
