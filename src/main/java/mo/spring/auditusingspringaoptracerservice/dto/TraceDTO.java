@@ -21,7 +21,7 @@ public class TraceDTO implements Serializable {
     private String changes;
     private LocalDateTime tracedAt;
 
-    private Trace previousState;
+    private Trace previousTrace;
 
     public TraceDTO() {
     }
@@ -106,12 +106,12 @@ public class TraceDTO implements Serializable {
         this.tracedAt = tracedAt;
     }
 
-    public Trace getPreviousState() {
-        return previousState;
+    public Trace getPreviousTrace() {
+        return previousTrace;
     }
 
-    public void setPreviousState(Trace previousState) {
-        this.previousState = previousState;
+    public void setPreviousTrace(Trace previousTrace) {
+        this.previousTrace = previousTrace;
     }
 
     @Override

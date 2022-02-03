@@ -31,13 +31,13 @@ public class TraceController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<TraceDTO> getMemberById(@PathVariable(value = "id") Long traceId) {
+    public ResponseEntity<TraceDTO> getTraceById(@PathVariable(value = "id") Long traceId) {
         TraceDTO traceDTO = traceService.findById(traceId);
         return ResponseEntity.ok().body(traceDTO);
     }
 
     @PostMapping()
-    public ResponseEntity<TraceDTO> createMember(@RequestBody TraceDTO traceDTO) {
+    public ResponseEntity<TraceDTO> createTrace(@RequestBody TraceDTO traceDTO) {
         TraceDTO traceDTO1 = traceService.save(traceDTO);
 
         return ResponseEntity.ok(traceDTO1);

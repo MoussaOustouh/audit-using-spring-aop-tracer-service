@@ -7,7 +7,6 @@ import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -47,9 +46,9 @@ public class Trace implements Serializable {
 
     private LocalDateTime tracedAt;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "previous_state_id")
-    private Trace previousState;
+    @OneToOne
+    @JoinColumn(name = "previous_trace_id")
+    private Trace previousTrace;
 
     public Long getIdTrace() {
         return idTrace;
@@ -115,12 +114,12 @@ public class Trace implements Serializable {
         this.actionInfo = actionInfo;
     }
 
-    public Trace getPreviousState(){
-        return previousState;
+    public Trace getPreviousTrace() {
+        return previousTrace;
     }
 
-    public void setPreviousState(Trace previousState){
-        this.previousState = previousState;
+    public void setPreviousTrace(Trace previousTrace) {
+        this.previousTrace = previousTrace;
     }
 
     public String getChanges() {
