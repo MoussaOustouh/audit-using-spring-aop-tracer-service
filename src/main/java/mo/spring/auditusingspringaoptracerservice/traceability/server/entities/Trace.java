@@ -17,11 +17,12 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "traces")
 @EntityListeners(TraceEntityListner.class)
-public class Trace implements Serializable {
+public class Trace implements Serializable, Cloneable {
     private static final long serialVersionUID = 3124638415250772441L;
 
     @Id
@@ -42,8 +43,9 @@ public class Trace implements Serializable {
     private String action;
     private String actionInfo;
 
+    @Convert(converter = JpaConverterJson.class)
     @Lob
-    private String changes;
+    private List<String> changes;
 
     private LocalDateTime tracedAt;
 
@@ -123,11 +125,11 @@ public class Trace implements Serializable {
         this.previousTrace = previousTrace;
     }
 
-    public String getChanges() {
+    public List<String> getChanges() {
         return changes;
     }
 
-    public void setChanges(String changes) {
+    public void setChanges(List<String> changes) {
         this.changes = changes;
     }
 
@@ -153,5 +155,14 @@ public class Trace implements Serializable {
                 ", changes='" + changes + '\'' +
                 ", tracedAt='" + tracedAt + '\'' +
                 '}';
+    }
+
+    @Override
+    public Trace clone() {
+        try {
+            return (Trace) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 }

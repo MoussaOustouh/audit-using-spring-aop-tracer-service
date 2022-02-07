@@ -2,6 +2,7 @@ package mo.spring.auditusingspringaoptracerservice.dto;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class TraceDTOHelper implements Serializable {
     private static final long serialVersionUID = -3435247283237432197L;
@@ -16,7 +17,7 @@ public class TraceDTOHelper implements Serializable {
 
     String action;
     String actionInfo;
-    String changes;
+    List<String> changes;
     LocalDateTime tracedAt;
 
     public TraceDTOHelper() {
@@ -86,11 +87,11 @@ public class TraceDTOHelper implements Serializable {
         this.actionInfo = actionInfo;
     }
 
-    public String getChanges() {
+    public List<String> getChanges() {
         return changes;
     }
 
-    public void setChanges(String changes) {
+    public void setChanges(List<String> changes) {
         this.changes = changes;
     }
 

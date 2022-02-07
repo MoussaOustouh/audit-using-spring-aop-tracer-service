@@ -9,6 +9,7 @@ import mo.spring.auditusingspringaoptracerservice.repositories.TraceRepository;
 import mo.spring.auditusingspringaoptracerservice.services.ITraceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,6 +27,7 @@ public class TraceServiceImpl implements ITraceService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public TraceDTO findById(Long id) {
         Optional<Trace> traceOptional = traceRepository.findById(id);
         if(traceOptional.isEmpty()){
