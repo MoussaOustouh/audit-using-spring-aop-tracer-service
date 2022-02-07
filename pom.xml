@@ -49,6 +49,7 @@
         <dependency>
             <groupId>com.oracle.database.jdbc</groupId>
             <artifactId>ojdbc8</artifactId>
+            <version>21.3.0.0</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
@@ -66,6 +67,12 @@
             <groupId>org.modelmapper</groupId>
             <artifactId>modelmapper</artifactId>
             <version>3.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.javers</groupId>
+            <artifactId>javers-core</artifactId>
+            <version>6.6.2</version>
         </dependency>
 
     </dependencies>
