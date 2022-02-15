@@ -1,4 +1,4 @@
-package mo.spring.auditusingspringaoptracerservice.dto;
+package mo.spring.auditusingspringaoptracerservice.traceability.server.dto;
 
 import java.io.Serializable;
 

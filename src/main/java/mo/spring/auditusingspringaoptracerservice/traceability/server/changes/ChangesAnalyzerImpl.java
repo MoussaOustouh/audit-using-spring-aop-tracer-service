@@ -23,22 +23,14 @@ public class ChangesAnalyzerImpl implements IChangesAnalyzer{
     @Autowired
     private ObjectMapper oMapper;
 
-//    @Override
-//    public String compare(Object oldState, Object newState) {
-////        LinkedHashMap<String, String> o = objectToMap(oldState);
-////        LinkedHashMap<String, String> n = objectToMap(newState);
-//
-//        Diff diff = javers.compare(oldState, newState);
-//
-//        return diff.prettyPrint();
-//    }
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<String> compareObjectsAndGetChangedFieldNames(Object oldState, Object newState) {
+        LinkedHashMap<String, String> oldS = this.objectToMap(oldState);
+        LinkedHashMap<String, String> newS = this.objectToMap(newState);
 
-//    @Override
-//    public String compareLinkedHashMap(LinkedHashMap<String, String> oldState, LinkedHashMap<String, String> newState) {
-//        Diff diff = javers.compare(oldState, newState);
-//
-//        return diff.prettyPrint();
-//    }
+        return this.compareAndGetChangedFieldNames(oldS, newS);
+    }
 
     @Override
     @SuppressWarnings("unchecked")
@@ -61,18 +53,11 @@ public class ChangesAnalyzerImpl implements IChangesAnalyzer{
 
     @Override
     public String getChangedFieldNamesPrettyPrint(List<String> changedFieldNames, String concat) {
-//        StringBuilder b = new StringBuilder();
         List<String> list = changedFieldNames.stream()
                 .map(cfn->concat+cfn)
                 .collect(Collectors.toList());
 
         return String.join("\n", list);
-    }
-
-    @Override
-    public String compareAndGetChangedFieldNamesPrettyPrint(LinkedHashMap<String, String> oldState, LinkedHashMap<String, String> newState, String concat) {
-        List<String> changedFieldNames = this.compareAndGetChangedFieldNames(oldState, newState);
-        return this.getChangedFieldNamesPrettyPrint(changedFieldNames, concat);
     }
 
     @Override

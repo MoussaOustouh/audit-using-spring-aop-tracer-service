@@ -1,7 +1,7 @@
 package mo.spring.auditusingspringaoptracerservice.controllers;
 
-import mo.spring.auditusingspringaoptracerservice.dto.TraceDTO;
-import mo.spring.auditusingspringaoptracerservice.services.ITraceService;
+import mo.spring.auditusingspringaoptracerservice.traceability.server.dto.TraceDTO;
+import mo.spring.auditusingspringaoptracerservice.traceability.server.services.ITraceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

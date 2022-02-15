@@ -1,4 +1,4 @@
-package mo.spring.auditusingspringaoptracerservice.dto.mapper;
+package mo.spring.auditusingspringaoptracerservice.traceability.server.dto.mapper;
 
 import java.util.List;
 import java.util.Set;

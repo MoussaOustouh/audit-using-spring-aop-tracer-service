@@ -1,12 +1,12 @@
-package mo.spring.auditusingspringaoptracerservice.services.impl;
+package mo.spring.auditusingspringaoptracerservice.traceability.server.services.impl;
 
-import mo.spring.auditusingspringaoptracerservice.dto.TraceDTO;
-import mo.spring.auditusingspringaoptracerservice.dto.mapper.IMapper;
+import mo.spring.auditusingspringaoptracerservice.traceability.server.dto.TraceDTO;
+import mo.spring.auditusingspringaoptracerservice.traceability.server.dto.mapper.IMapper;
 import mo.spring.auditusingspringaoptracerservice.traceability.server.entities.Trace;
 import mo.spring.auditusingspringaoptracerservice.exceptions.NotFoundException;
 import mo.spring.auditusingspringaoptracerservice.exceptions.constants.ErrorMessages;
 import mo.spring.auditusingspringaoptracerservice.repositories.TraceRepository;
-import mo.spring.auditusingspringaoptracerservice.services.ITraceService;
+import mo.spring.auditusingspringaoptracerservice.traceability.server.services.ITraceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

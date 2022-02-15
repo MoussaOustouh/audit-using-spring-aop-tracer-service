@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Lazy;
 
 import javax.persistence.PostPersist;
 import javax.persistence.PrePersist;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,14 +37,7 @@ public class TraceEntityListner {
             if(previousTraceOptional.isPresent()){
                 Object oldState = previousTraceOptional.get().getEntityState();
                 Object newState = entity.getEntityState();
-
-                LinkedHashMap<String, String> o = changesAnalyzer.objectToMap(oldState);
-                LinkedHashMap<String, String> n = changesAnalyzer.objectToMap(newState);
-
-//                String changes = changesAnalyzer.compare(oldState, newState);
-                List<String> changedFieldNames = changesAnalyzer.compareAndGetChangedFieldNames(o, n);
-//                String changes = changesAnalyzer.compareAndGetChangedFieldNamesPrettyPrint(o, n);
-//                String changes = changesAnalyzer.compareAndGetChangedFieldNamesPrettyPrint(o, n, "- ");
+                List<String> changedFieldNames = changesAnalyzer.compareObjectsAndGetChangedFieldNames(oldState, newState);;
 
                 entity.setChanges(changedFieldNames);
                 traceRepository.save(entity);
